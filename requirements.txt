@@ -2,4 +2,8 @@ notebook
 requests
 bs4
 numpy
+pandas
 matplotlib
+lxml
+tqdm
+pyyaml
