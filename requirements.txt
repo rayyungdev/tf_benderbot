@@ -7,3 +7,6 @@ matplotlib
 lxml
 tqdm
 pyyaml
+nltk
+discord
+python-dotenv
