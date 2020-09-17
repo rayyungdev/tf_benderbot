@@ -1,5 +1,6 @@
 from benderClass import bender
 import random as rand
+import numpy as np
 
 pairs = [
     [
