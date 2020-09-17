@@ -6,6 +6,7 @@ class bender():
         super().__init__()
         stream = open('dialogues.yaml','r')
         dictionary = yaml.load(stream)
+        stream.close()
         self.rand_quote = dictionary["BENDER"]
         self.a_quote = []; self.s_quote = []; self.p_quote = []; self.ap_quote = []; self.intro = []; self.greetings = []
 
