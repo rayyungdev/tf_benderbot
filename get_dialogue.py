@@ -11,14 +11,15 @@ if __name__ == "__main__":
     links = data_scrape('https://www.imsdb.com/TV/Futurama.html', 'Futurama')
 
     # Parse dialogues
-    all_dialogues = defaultdict(list)
+    all_dialogues = []
     for link in tqdm(links, desc='Parsing dialogues'):
         dialogues = parse_dialogues(link)
-        for character, dialogues in dialogues.items():
-            all_dialogues[character].extend(dialogues)
+        all_dialogues.append({
+            'link': link,
+            'dialogues': dialogues
+        })
     
     # Write to file
     print('Writing to file...')
     with open('dialogues.yaml', 'w+') as f:
-        all_dialogues = dict(all_dialogues)
         yaml.dump(all_dialogues, f)

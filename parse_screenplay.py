@@ -28,7 +28,7 @@ def parse_dialogues(link):
     lineiter = iter(lines)
 
     character_regex = re.compile('^\s+([A-Z]+)$')
-    all_dialogues = defaultdict(list)
+    dialogues = []
 
     # Line iterator will throw us a StopIteration error when we run out of lines
     try:
@@ -50,9 +50,14 @@ def parse_dialogues(link):
             dialogue = [ line.strip() for line in dialogue ]
             dialogue = [ line.rstrip() for line in dialogue ]
             dialogue = ' '.join(dialogue)
-            all_dialogues[character].append(dialogue)
+
+            # Append to dialogues
+            dialogues.append({
+                'character': character,
+                'dialogue': dialogue
+            })
         
     except StopIteration:
         pass
 
-    return all_dialogues
+    return dialogues
